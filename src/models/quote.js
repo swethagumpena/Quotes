@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.STRING,
     author: DataTypes.STRING,
     length: DataTypes.INTEGER,
-    tags: DataTypes.ARRAY(DataTypes.TEXT),
+    tags: DataTypes.ARRAY(DataTypes.STRING),
   }, {
     sequelize,
     modelName: 'Quote',
