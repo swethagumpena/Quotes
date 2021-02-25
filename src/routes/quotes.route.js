@@ -1,10 +1,11 @@
 const express = require('express');
-const { createQuote } = require('../handlers/quotes.handler');
+const { createQuote, getQuotes } = require('../handlers/quotes.handler');
 
 const router = express.Router();
 
 console.log('jj');
-router.post('', createQuote);
+router.put('', createQuote);
+router.get('', getQuotes);
 
 module.exports = {
   router,

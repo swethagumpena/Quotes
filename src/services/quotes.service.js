@@ -9,10 +9,14 @@ const postQuote = async () => {
   });
 
   return createdQuote;
-//   const createdTodo = await Todo.create({ title: message, status: stat });
-//   return createdTodo;
+};
+
+const getQuote = async () => {
+  const quotes = await Quote.findAll();
+  return quotes;
 };
 
 module.exports = {
   postQuote,
+  getQuote,
 };
