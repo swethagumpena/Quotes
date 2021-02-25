@@ -16,7 +16,23 @@ const getQuote = async () => {
   return quotes;
 };
 
+const updateQuote = async (ID, data) => { // data is req.body
+  // eslint-disable-next-line max-len
+//   console.log(data);
+  const updatedQuote = await Quote.update({
+    content: data.content, author: data.author, length: data.length, tags: data.tags,
+  },
+  {
+    where: {
+      quoteId: ID,
+    },
+    returning: true,
+  });
+  return updatedQuote[1];
+};
+
 module.exports = {
   postQuote,
   getQuote,
+  updateQuote,
 };

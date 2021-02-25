@@ -11,7 +11,14 @@ const getQuotes = async (req, res) => {
   res.status(200).send(content);
 };
 
+const updateQuote = async (req, res) => {
+//   console.log(req.body);
+  const updatedQuote = await quoteService.updateQuote(req.params.id, req.body);
+  res.status(200).send(updatedQuote);
+};
+
 module.exports = {
   createQuote,
   getQuotes,
+  updateQuote,
 };
