@@ -28,7 +28,7 @@ describe('Quote service', () => {
   });
 
   // toodo
-  xit('should get a list of quotes based on query', async () => {
+  it('should get a list of quotes based on query', async () => {
     const mockResponse = [
       {
         id: 3,
@@ -46,9 +46,8 @@ describe('Quote service', () => {
     const quoteByQuery = jest
       .spyOn(Quote, 'findAll')
       .mockResolvedValue(mockResponse);
-    const response = await quoteService.getQuoteByQuery();
+    const response = await quoteService.getQuoteByQuery({ tags: 'famous-quotes' });
     expect(response).toStrictEqual(mockResponse); // coz function is returning
-    expect(response).toHaveBeenCalledWith({ tags: 'friendship' });
     expect(quoteByQuery).toHaveBeenCalledWith({
       where: {
         tags: { [Op.contains]: ['famous-quotes'] },
